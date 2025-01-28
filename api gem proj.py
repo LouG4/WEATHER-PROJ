@@ -1,6 +1,7 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
+from colorama import Fore, Style
 
 # Load environment variables from .env file
 load_dotenv()
@@ -44,5 +45,7 @@ if __name__ == "__main__":
         # Get the weather forecast
         forecast = generate_weather_forecast(location)
 
-        # Print the weather forecast
-        print(f"Weather Forecast for {location}:\n\n{forecast}\n\n")
+        if location.lower() == 'houston':
+            print(f"{Fore.YELLOW}{Style.BRIGHT}Houston{Style.RESET_ALL} is the best city in the world!\n\n")
+        else:
+            print(f"Weather Forecast for {location}:\n\n{forecast}\n\n")
